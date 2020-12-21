@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style1.css">
+    <title>Document</title>
+</head>
+
+<body id = 'bgImage' >
+    {{>nav}}
+    <h1 id = "title"  > Weather Page </h1>
+    <div class = 'info1' >
+
+        <form action="/test" method="POST">
+            <input required type="text" name="city" placeholder="...Search City"/><br />
+            <input required type="text" list="countryDropdown" placeholder="...Search Country"><br />
+        <datalist id="countryDropdown" name="countryCode">
+            {{#each list}}
+            <option value={{this.alpha}}>{{this.name}}</option>
+            {{/each}}
+        </datalist>
+            <button type="submit">search country/city</button>
+        </form>
+
+        <div class = 'info2'  >
+            <img src='http://openweathermap.org/img/wn/{{icon}}@2x.png'>
+            <p>{{city}}</p>
+            <p>{{weather}}</p>
+            <p>{{date}}</p>
+            <p>{{cityName}}</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
