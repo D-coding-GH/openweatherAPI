@@ -8,9 +8,8 @@ body{
 
     background-image:url("/css/images/clouds-sky-summer-day-blue.jpg");
     background-size: cover;
-
-
 }
+
 
 #title{
     display: flex;
@@ -19,17 +18,70 @@ body{
 
 }
 
+.forms{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
 
 .info1{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+   
 }
 
 .info2{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    
 }
+
+
+#data1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 25px;
+    text-align: center;
+}
+
+#data2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 25px;
+    
+}
+
+#data3{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+    padding-top: 45px;
+    text-align: center;
+}
+
+#cityname{
+    padding-top: 80px;
+    font-size: 50px;
+    margin-left:270px;
+}
+
+#weather{
+    font-size: 40px;
+    margin-right: 270px;
+}
+
+#temp{
+    font-size: 60px;
+    margin-top: -30px;
+}
+
+/* #icon{
+    padding-top: 45px;
+} */
 
 p{
     font-size: x-large;
