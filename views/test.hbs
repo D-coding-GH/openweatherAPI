@@ -4,35 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style1.css">
     <title>Document</title>
 </head>
 
-<body id = 'bgImage' >
+<body id='bgImage'>
+
     {{>nav}}
-    <h1 id = "title"  > Weather Page </h1>
-    <div class = 'info1' >
 
-        <form action="/test" method="POST">
-            <input required type="text" name="city" placeholder="...Search City"/><br />
-            <input required type="text" list="countryDropdown" placeholder="...Search Country"><br />
-        <datalist id="countryDropdown" name="countryCode">
-            {{#each list}}
-            <option value={{this.alpha}}>{{this.name}}</option>
-            {{/each}}
-        </datalist>
-            <button type="submit">search country/city</button>
-        </form>
+    <h1 id="title"> Weather Page </h1>
 
-        <div class = 'info2'  >
-            <img src='http://openweathermap.org/img/wn/{{icon}}@2x.png'>
-            <p>{{city}}</p>
-            <p>{{weather}}</p>
-            <p>{{date}}</p>
-            <p>{{cityName}}</p>
+    <div class='info1'>
+        <div>
+            <form class="forms" action="/test" method="POST">
+                <input required type="text" name="city" placeholder="...Search City" /><br />
+                <input required type="text" list="countryDropdown" placeholder="...Search Country"><br />
+                <datalist id="countryDropdown" name="countryCode">
+                    {{#each list}}
+                    <option value={{this.alpha}}>{{this.name}}</option>
+                    {{/each}}
+                </datalist>
+                <button type="submit">search country/city</button>
+            </form>
+
+            <div class='info2'>
+                <div id="data1">
+                    <img  id="icon" src='http://openweathermap.org/img/wn/{{icon}}@2x.png' width="180" height="180">
+                    <p id="cityname">{{cityName}}</p>
+                   
+                </div>
+                <div id="data2">
+                    <p id="weather">{{weather}}</p>
+                    <p id="temp" >{{city}}</p>
+                </div>
+                <div id="data3">
+                    <p>{{date}}</p>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
 </html>

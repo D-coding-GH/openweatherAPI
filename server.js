@@ -5,7 +5,7 @@ const path = require('path');
 const hbs = require('hbs');
 const axios = require('axios');
 // const dotenv = require('dotenv')
-let countryCodeList = [];
+let countryCodeList = []; 
 // require('dotenv').config();
 
 
@@ -27,16 +27,16 @@ app.use(express.static(publicDirectory));
 
 app.get('/noWeather', (req, res) => {
     res.render('noWeather')
-})
+})   
 
 // app.get('/test', (req, res) => {
 //     res.render('test')
 // })
 
-app.get("/test", async (req, res) => {
+app.get("/test", async (req, res) => {  
     const countryCode = await axios.get("https://restcountries.eu/rest/v2/all");
-    console.log(countryCode)
-    countryCodeList = countryCode.data.map(country => {
+    // console.log(countryCode)
+    countryCodeList = countryCode.data.map(country => {  
         return (
             { name: country.name, alpha: country.alpha3Code }
         )
@@ -56,19 +56,20 @@ app.post('/test', async (req, res) => {
 
         const myApi = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryName}&appid=165a0185527a6181c00190f0e678978c&units=metric`);
         
-        console.log(myApi.data)   
+        // console.log(myApi.data)   
         
         function addDays(date, days) {
             var result = new Date(date);
             result.setDate(result.getDate() + days);
             return result;
           }
+          
          let date = new Date();
 
          
         res.render('test', {
            
-            city: myApi.data.main.temp + "°",
+            city: myApi.data.main.temp + "°",//................rename temp not city
             weather: myApi.data.weather[0].description,
             date: myApi.data.dt = new Date(),
             icon: myApi.data.weather[0].icon,
@@ -102,7 +103,7 @@ app.get('/7days', async (req, res) => {
     try {
          
         const myApi7 = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude={hourly,daily}&appid=165a0185527a6181c00190f0e678978c&units=metric`);
-        console.log(myApi7.data)    
+        // console.log(myApi7.data)     
         // console.log(myApi7.data.daily[0].dt)
         res.render('7days', {
             
